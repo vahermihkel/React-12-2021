@@ -1,11 +1,13 @@
 
-function Ese(siitVõtanVastu) {
+function Ese(ss) {
     return (
         <div>
-            <div>Pealkiri: Ese1</div>
-            <div>Hind: 100</div>
-            <div>Kategooria: Kat1</div>
-            <button>Lisa ostukorvi</button>
+            <div className="center">Pealkiri: {ss.tere}</div>
+            <div className="center">Hind: 100</div>
+            <div className="center">Kategooria: Kat1</div>
+            <div className="center">
+                <button>Lisa ostukorvi</button>
+            </div>    
             <br /><br />
         </div>)
 }

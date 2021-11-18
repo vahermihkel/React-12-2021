@@ -4,10 +4,14 @@ function Menüü() {
     return (
         <header className="menüü">
             <Link to="/">
-                <button>Avalehele</button>
+                <div className="center">
+                    <button>Avalehele</button>
+                </div>
             </Link>
             <Link to="/ostukorv">
-                <button>Ostukorvi</button>
+                <div className="center">
+                    <button>Ostukorvi</button>
+                </div>
             </Link>
         </header>)
 }

@@ -2,8 +2,8 @@ import Ese from "../Components/Ese";
 
 function Kodu() {
     return (<div>
-        <Ese siinSaadanAndmed="" />
-        <Ese />
+        <Ese tere="Väärtus1" />
+        <Ese tere="Väärtus2"/>
         <Ese />
         <Ese />
         <Ese />
