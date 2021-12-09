@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
 
-function Ese(ss) {
+function Ese(võtanVastu) {
     return (
         <div>
-            <div className="center">Pealkiri: {ss.tere}</div>
-            <div className="center">Hind: 100</div>
-            <div className="center">Kategooria: Kat1</div>
+            <Link to={`/toode/${võtanVastu.pealkiri.replace(" ","-").toLowerCase()}`} className="link">
+                <div className="center">Pealkiri: {võtanVastu.pealkiri}</div>
+                <div className="center">Hind: {võtanVastu.hind.toFixed(2)}</div>
+                <div className="center">Kategooria: {võtanVastu.kategooria}</div>
+                { võtanVastu.pic && <div className="center"><img className="item-picture" src={võtanVastu.pic} alt="Toode" /> <br/></div>}
+            </Link>
             <div className="center">
                 <button>Lisa ostukorvi</button>
             </div>    

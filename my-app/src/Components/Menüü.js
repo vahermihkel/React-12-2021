@@ -13,6 +13,11 @@ function Menüü() {
                     <button>Ostukorvi</button>
                 </div>
             </Link>
+            <Link to="/admin">
+                <div className="center">
+                    <button>Admini vaatesse</button>
+                </div>
+            </Link>
         </header>)
 }
 
