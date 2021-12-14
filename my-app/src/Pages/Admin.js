@@ -54,6 +54,9 @@ function Admin() {
     }
 
     return (<div>
+        <Link to="/">
+            <button>Tagasi</button>
+        </Link> 
          <Link to="/lisa">
             <div className="center">
                 <button>Lisa toode</button>
