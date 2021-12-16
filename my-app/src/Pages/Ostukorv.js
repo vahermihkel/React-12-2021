@@ -52,6 +52,16 @@ function Ostukorv() {
         return ostukorviSumma;
     }
 
+    function maksma() {
+        fetch("URL",{ // EVERYPAY URL
+            method: "POST", // MIS ON SELLE URLi API MEETODI TÜÜP
+            body: {
+                võti: "väärtus"
+            }
+        })
+        // https://support.every-pay.com/downloads/everypay_apiv4_integration_documentation.pdf
+    }
+
     
     return (<div>
         <Link to="/">
@@ -70,6 +80,7 @@ function Ostukorv() {
         </div>)}
         { ostukorviTooted.length > 0 && <div>Kogusumma: {arvutaOstukorviSumma()}</div>}
         { ostukorviTooted.length === 0 && <div className="center"><br/> Ostukorv on tühi</div>}
+        <button onClick={maksma}>Maksma</button>
     </div>)
 }
 

@@ -3,9 +3,33 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: black;
+}
+
 .menüü {
-  height: 100px;
+  height: 120px;
   background-color: blue;
+}
+
+.carousel-item {
+  text-align: center;
+}
+
+.carousel-picture {
+  height: 250px;
+}
+
+.carousel-control-next, .carousel-control-prev {
+ background-color: #cccccc; 
+}
+
+.carousel-caption {
+  color: black;
+} 
+
+.carousel-indicators[data-bs-target] {
+  background-color: black;
 }
 
 .center {
@@ -15,4 +39,12 @@ a {
 .item-picture {
   height: 100px;
   width: 100px;
+}
+
+header.has-transparent .nav {
+  background-color: transparent;
+}
+
+header.not-transparent .nav {
+  background-color: white;
 }

@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Menüü from './Components/Menüü';
 import Admin from './Pages/Admin';
