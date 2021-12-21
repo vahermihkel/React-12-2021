@@ -24,8 +24,15 @@ function MuudaEse() {
 
     console.log(toode);
 
-    function muudaToode(event) {
-        event.preventDefault();
+    function saaKategooriad() {
+        if (localStorage.getItem("kategooriad")) {
+            return JSON.parse(localStorage.getItem("kategooriad"));
+        } else {
+            return [];
+        }
+    }
+
+    function muudaToode() {
         console.log("muutmise nupp töötab");
         
         const uuendatudToode = {
@@ -54,7 +61,12 @@ function MuudaEse() {
         <label>Hind</label> <br/>
         <input ref={maksumusRef} defaultValue={toode.maksumus} type="number" /> <br/>
         <label>Kategooria</label> <br/>
-        <input ref={katRef} defaultValue={toode.kat} type="text" /> <br/>
+        {/* <input ref={katRef} defaultValue={toode.kat} type="text" /> <br/> */}
+        <select ref={katRef} defaultValue={toode.kat}>
+            <option>Vali kategooria</option>
+            {saaKategooriad().map(kategooria => <option 
+                key={kategooria} value={kategooria}>{kategooria}</option>)}
+        </select> <br />
         <label>Pilt</label> <br/>
         <input ref={piltRef} defaultValue={toode.pilt} type="text" /> <br/>
         <button onClick={muudaToode}>Muuda toode</button>

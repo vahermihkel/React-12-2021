@@ -11,6 +11,13 @@ function LisaToode() {
     const katRef = useRef();
     const piltRef = useRef();
 
+    function saaKategooriad() {
+        if (localStorage.getItem("kategooriad")) {
+            return JSON.parse(localStorage.getItem("kategooriad"));
+        } else {
+            return [];
+        }
+    }
 
     function salvestaToode() {
         // let nimetusValue = document.getElementById("nimetus").value;
@@ -44,7 +51,12 @@ function LisaToode() {
         <label>Hind</label> <br/>
         <input ref={hindRef} type="number" /> <br/>
         <label>Kategooria</label> <br/>
-        <input ref={katRef} type="text" /> <br/>
+        {/* <input ref={katRef} type="text" /> <br/> */}
+        <select ref={katRef}>
+            <option>Vali kategooria</option>
+            {saaKategooriad().map(kategooria => <option 
+                key={kategooria} value={kategooria}>{kategooria}</option>)}
+        </select> <br />
         <label>Pilt</label> <br/>
         <input ref={piltRef} type="text" /> <br/>
         <button onClick={salvestaToode}>Lisa toode</button>

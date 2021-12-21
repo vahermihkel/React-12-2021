@@ -9,6 +9,9 @@ const resources = {
     translation: {
         "cart": {
             "cart-button": "Add to cart"
+        },
+        "categories": {
+          "categories-button": "Add"
         }
     }
   },
@@ -16,6 +19,9 @@ const resources = {
     translation: {
         "cart": {
             "cart-button": "Lisa ostukorvi"
+        },
+        "categories": {
+          "categories-button": "Sisesta"
         }
     }
   }

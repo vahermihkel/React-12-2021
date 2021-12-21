@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import AdminEse from "../Components/AdminEse";
+import AdminEse from "../../Components/AdminEse";
 
-function Admin() {
+function AdminEsemeteList() {
     const [stateTooted,setStateTooted] = useState(saaEsemed());
 
     function saaEsemed(){
@@ -21,18 +20,6 @@ function Admin() {
         }
     }
 
-    // tahan kustutada ühte eset
-        // 1. võtan localStorage-st massiivi: [{1},{2},{3}] 
-        //              panen ta let toode abil muutujasse ja võtan JSON.parse abil jutumärgid ära
-        // 2. otsin õige eseme järjekorranumbri üles unikaalsuse tunnuse abil: 2
-        //          .findIndex() abil  .findIndex(ese => ese.OMADUS === OMADUSEGA_MIS_SAAN_ÜLEVALT)
-        // 3. kustutan järjekorranumbriga 2 saadud massiivist: [{1},{2}]
-        //          .splice(järjekorraNumber,1)
-        // 4. panen localStorage-sse uuesti üles
-        //           localStorage.setItem abil ja pean tegema JSON.stringify(tooted)
-        //             ehk selle massiivi stringi kujule ehk jutumärgid ümber
-
-                // "Vitamin well"
     function kustutaEse(esemePealkiri) {
         // [{nimi: "Coca cola", maksumus: 2, kat: "coca", pilt: "https://assets.iceland.co.uk/i/iceland/coca-cola_original_taste_1l_72842_T1.jpg"},
         // {nimi: "Fanta", maksumus: 1.5, kat: "coca"},
@@ -49,19 +36,11 @@ function Admin() {
         if (toodeIndex !== -1) {
             tooted.splice(toodeIndex,1);
             localStorage.setItem("tooted",JSON.stringify(tooted));
-            setStateTooted(saaEsemed());
+            setStateTooted(tooted);
         }
     }
 
     return (<div>
-        <Link to="/">
-            <button>Tagasi</button>
-        </Link> 
-         <Link to="/lisa">
-            <div className="center">
-                <button>Lisa toode</button>
-            </div>
-        </Link>
         {
             stateTooted.map(toode => 
                 <AdminEse key={toode.nimi} toode={toode} onDeleteToode={kustutaEse} />
@@ -70,4 +49,4 @@ function Admin() {
     </div>)
 }
 
-export default Admin;
+export default AdminEsemeteList;

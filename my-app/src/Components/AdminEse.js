@@ -13,7 +13,7 @@ function AdminEse(võtanVastu) {
         <div>
             <div className="center">Pealkiri: {võtanVastu.toode.nimi}</div>
             <div className="center">Hind: {võtanVastu.toode.maksumus.toFixed(2)}</div>
-            <div className="center">Kategooria: {võtanVastu.toode.kategooria}</div>
+            <div className="center">Kategooria: {võtanVastu.toode.kat}</div>
             <div className="center">
             { võtanVastu.toode.pilt && <div><img className="item-picture" src={võtanVastu.toode.pilt} alt="Toode" /> <br/></div>}
                 <Link to={`/muuda/${võtanVastu.toode.nimi.replace(" ","-").toLowerCase()}`}>

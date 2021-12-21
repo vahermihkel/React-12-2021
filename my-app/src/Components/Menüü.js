@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
 
 function Menüü() {
     const { i18n } = useTranslation();
@@ -24,29 +25,29 @@ function Menüü() {
     // muudaKeel {i18n.changeLanguage()} --- see laeb componendi uuesti
     useEffect(() => {
         muudaKeel(localStorage.getItem("keel"));
-    });
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
    
     return (
         <header className="menüü">
             <Link to="/">
                 <div className="center">
-                    <button>Avalehele</button>
+                    <Button>Avalehele</Button>
                 </div>
             </Link>
             <Link to="/ostukorv">
                 <div className="center">
-                    <button>Ostukorvi</button>
+                    <Button>Ostukorvi</Button>
                 </div>
             </Link>
             <Link to="/admin">
                 <div className="center">
-                    <button>Admini vaatesse</button>
+                    <Button>Admini vaatesse</Button>
                 </div>
             </Link>
             {/* muudaKeel('EE') */}
-            <button onClick={() => muudaKeel("ee")}>EE</button> 
+            <Button onClick={() => muudaKeel("ee")}>EE</Button> 
              {/* muudaKeel('EN') */}
-            <button onClick={() => muudaKeel("en")}>EN</button>
+            <Button onClick={() => muudaKeel("en")}>EN</Button>
         </header>)
 }
 
