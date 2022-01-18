@@ -1,5 +1,5 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import NavigationBar from './Components/NavigationBar';
 import Home from './Pages/Home';
 import Cart from './Pages/Cart';
