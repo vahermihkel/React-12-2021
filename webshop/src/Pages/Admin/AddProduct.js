@@ -28,6 +28,7 @@ function AddProduct() {
                 body: JSON.stringify(product)
             }
         );
+        nameRef.current.value = "";
     }
 
     return (

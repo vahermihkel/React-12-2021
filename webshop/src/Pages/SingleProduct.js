@@ -4,7 +4,7 @@ function SingleProduct() {
     const productCode = window.location.href.split("toode/")[1];
     console.log(productCode);
 
-    const [product, updateProduct] = useState({name: "", model: ""});
+    const [product, updateProduct] = useState({});
 
     useEffect(() => 
         fetch("https://webshop-12-2021-default-rtdb.europe-west1.firebasedatabase.app/products.json")

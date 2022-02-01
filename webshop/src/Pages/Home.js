@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Product from "../Components/Product";
+import Button from "react-bootstrap/Button";
 
 function Home() {
     const [products, updateProducts] = useState([]);
@@ -27,8 +28,32 @@ function Home() {
         }), []
     );
     
+    function sortNameAsc() {
+        products.sort((a, b) => a.name.localeCompare(b.name));
+        updateProducts(products.slice());
+    }
 
-    return (<div>
+    function sortNameDesc() {
+        products.sort((a, b) => b.name.localeCompare(a.name));
+        updateProducts(products.slice());
+    }
+
+    function sortPriceAsc() {
+        products.sort((a, b) => a.price - b.price);
+        updateProducts(products.slice());
+    }
+
+    function sortPriceDesc() {
+        products.sort((a, b) => b.price - a.price);
+        updateProducts(products.slice());
+    }
+
+    return (
+    <div>
+        <Button onClick={sortNameAsc}>Sorteeri A-Z</Button>
+        <Button onClick={sortNameDesc}>Sorteeri Z-A</Button>
+        <Button onClick={sortPriceAsc}>Hind kasvavalt</Button>
+        <Button onClick={sortPriceDesc}>Hind kahanevalt</Button>
         {products.map(product => <Product key={product.code} prod={product} />)}
     </div>)
 }

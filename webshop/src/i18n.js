@@ -25,6 +25,7 @@ const resources = {
           "product-code": "Product code",
           "product-category": "Product category",
           "add-button": "Add product",
+          "edit-button": "Edit product"
         },
         "admin": {
           "add-product": "Add product",
@@ -57,6 +58,7 @@ const resources = {
           "product-code": "Toote tootekood",
           "product-category": "Toote kategooria",
           "add-button": "Lisa toode",
+          "edit-button": "Muuda toode"
         },
         "admin": {
           "add-product": "Lisa toode",
@@ -89,6 +91,7 @@ const resources = {
           "product-code": "RU Toote tootekood",
           "product-category": "RU Toote kategooria",
           "add-button": "RU Lisa toode",
+          "edit-button": "RU Muuda toode"
         },
         "admin": {
           "add-product": "RU Lisa toode",

@@ -22,13 +22,13 @@ function NavigationBar() {
                 <Nav.Link as={Link} to="/ostukorv">{t("navbar.cart-link")}</Nav.Link>
             </Nav>
             <Nav.Link onClick={() => changeLanguage('EE')}>
-                <img className="flag" alt="" src="language-flags/estonia.png" />
+                <img className="flag" alt="" src="/language-flags/estonia.png" />
             </Nav.Link>
             <Nav.Link onClick={() => changeLanguage('EN')}>
-                <img className="flag" alt="" src="language-flags/united-kingdom.png" />
+                <img className="flag" alt="" src="/language-flags/united-kingdom.png" />
             </Nav.Link>
             <Nav.Link onClick={() => changeLanguage('RU')}>
-                <img className="flag" alt="" src="language-flags/russia.png" />
+                <img className="flag" alt="" src="/language-flags/russia.png" />
             </Nav.Link>
         </Container>
     </Navbar>
