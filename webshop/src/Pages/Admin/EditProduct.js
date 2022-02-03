@@ -13,7 +13,7 @@ function EditProduct() {
     const codeRef = useRef();
     const categoryRef = useRef();
     const { t } = useTranslation();
-    const [product, updateProduct] = useState({});
+    const [product, updateProduct] = useState(null);
     const [productsFromDb, updateProducts] = useState([]);
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
@@ -83,30 +83,33 @@ function EditProduct() {
 
     return (
     <div>
+       {product && <div>
         <div>      
-            <div>{product.name}</div>
-            <div>{product.model}</div>
-            <div>{product.price}</div>
-            <div>{product.description}</div>
-            <div>{product.code}</div>
-        </div>
-        <div>
-            <Form.Label>{t("product.name")}</Form.Label> <br />
-            <Form.Control placeholder={t("product.product-name")} ref={nameRef} defaultValue={product.name} /> <br />
-            <Form.Label>{t("product.model")}</Form.Label> <br />
-            <Form.Control placeholder={t("product.product-model")} ref={modelRef} defaultValue={product.model} /> <br />
-            <Form.Label>{t("product.description")}</Form.Label> <br />
-            <Form.Control placeholder={t("product.product-description")} ref={descriptionRef} defaultValue={product.description} /> <br />
-            <Form.Label>{t("product.price")}</Form.Label> <br />
-            <Form.Control placeholder={t("product.product-price")} ref={priceRef} defaultValue={product.price} /> <br />
-            <Form.Label>{t("product.code")}</Form.Label> <br />
-            <Form.Control placeholder={t("product.product-code")} minLength={8} maxLength={8} onKeyUp={checkCode} ref={codeRef} defaultValue={product.code} /> <br />
-            <Form.Label>{t("product.category")}</Form.Label> <br />
-            <Form.Control placeholder={t("product.product-category")} ref={categoryRef} defaultValue={product.category} /> <br />
-            <div className="center">
-                <Button variant="dark" disabled={buttonDisabled} onClick={editFromDatabase}>{t("product.edit-button")}</Button>
+                <div>{product.name}</div>
+                <div>{product.model}</div>
+                <div>{product.price}</div>
+                <div>{product.description}</div>
+                <div>{product.code}</div>
             </div>
-        </div>
+            <div>
+                <Form.Label>{t("product.name")}</Form.Label> <br />
+                <Form.Control placeholder={t("product.product-name")} ref={nameRef} defaultValue={product.name} /> <br />
+                <Form.Label>{t("product.model")}</Form.Label> <br />
+                <Form.Control placeholder={t("product.product-model")} ref={modelRef} defaultValue={product.model} /> <br />
+                <Form.Label>{t("product.description")}</Form.Label> <br />
+                <Form.Control placeholder={t("product.product-description")} ref={descriptionRef} defaultValue={product.description} /> <br />
+                <Form.Label>{t("product.price")}</Form.Label> <br />
+                <Form.Control placeholder={t("product.product-price")} ref={priceRef} defaultValue={product.price} /> <br />
+                <Form.Label>{t("product.code")}</Form.Label> <br />
+                <Form.Control placeholder={t("product.product-code")} onChange={checkCode} minLength={8} maxLength={8} ref={codeRef} defaultValue={product.code} /> <br />
+                <Form.Label>{t("product.category")}</Form.Label> <br />
+                <Form.Control placeholder={t("product.product-category")} ref={categoryRef} defaultValue={product.category} /> <br />
+                <div className="center">
+                    <Button variant="dark" disabled={buttonDisabled} onClick={editFromDatabase}>{t("product.edit-button")}</Button>
+                </div>
+            </div>
+       </div>}
+       { !product && <div>Toodet ei leitud</div>}
     </div>
         )
 }

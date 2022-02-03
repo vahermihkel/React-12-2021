@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 function AdminProduct(props) {
     const { t } = useTranslation();

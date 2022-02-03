@@ -1,5 +1,14 @@
-.cart-wrapper {
+.slick-slider {
+    width: 50%;
+    margin-left: 20%;
+}
 
+.slick-prev:before, .slick-next:before {
+    color: #595c8a;
+}
+
+.cart-sum {
+    color: white;
 }
 
 .cart-item {

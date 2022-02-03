@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ParcelMachines from '../Components/ParcelMachines';
+import { cartSumService } from '../Services/CartSumService';
 
 function Cart() {
     const [cartProducts, updateCartProducts] = useState(getCartItems());
+
+    
 
     function getCartItems() {
         if (sessionStorage.getItem("cartItems")) {
@@ -24,6 +27,7 @@ function Cart() {
         if (cartProducts[index].quantity > 1) {
             cartProducts[index].quantity--;
             updateCartProducts(cartProducts.slice());
+            cartSumService.sendCartSum(calculateSumOfCart());
             sessionStorage.setItem("cartItems",JSON.stringify(cartProducts));
         } else if (cartProducts[index].quantity === 1) {
             onDeleteFromCart(product);
@@ -34,6 +38,7 @@ function Cart() {
         const index = cartProducts.indexOf(product);
         cartProducts[index].quantity++;
         updateCartProducts(cartProducts.slice());
+        cartSumService.sendCartSum(calculateSumOfCart());
         sessionStorage.setItem("cartItems",JSON.stringify(cartProducts));
     }
 
@@ -41,6 +46,7 @@ function Cart() {
         const index = cartProducts.indexOf(product);
         cartProducts.splice(index,1);
         updateCartProducts(cartProducts.slice());
+        cartSumService.sendCartSum(calculateSumOfCart());
         sessionStorage.setItem("cartItems",JSON.stringify(cartProducts));
     }
 
@@ -84,7 +90,7 @@ function Cart() {
             <span className='cart-item-total'>  {product.cartProduct.price * product.quantity} €</span>
             <img className="cart-button delete" onClick={() => onDeleteFromCart(product)} src="/cart/delete.png" alt="" />
         </div>)}
-        <ParcelMachines />
+        { cartProducts.length > 0 && <ParcelMachines />}
         { cartProducts.length === 0 && <div>Ostukorv on tühi</div>}
         { cartProducts.length > 0 && 
             <div className='cart-sum'>

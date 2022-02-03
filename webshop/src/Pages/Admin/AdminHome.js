@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button"
 import { useTranslation } from 'react-i18next';
+import ControlledTabs from "../../Components/ControlledTabs";
 
 function AdminHome() {
     const { t } = useTranslation();
@@ -13,6 +14,8 @@ function AdminHome() {
         <Link to="/admin/tooted">
             <Button variant="dark" className="admin-button">{t("admin.change-products")}</Button>
         </Link>
+        <br/><br/>
+        <ControlledTabs />
     </div>)
 }
 
